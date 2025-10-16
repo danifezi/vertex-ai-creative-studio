@@ -54,6 +54,8 @@ def on_veo_load(e: me.LoadEvent):
         _update_state_for_new_model(veo_model_param)
 
     if image_uri:
+        # When an image is passed, default to the i2v mode and Veo 3.1 Fast model.
+        _update_state_for_new_model("3.1-fast")
         # Set the image from the query parameter
         state.reference_image_gcs = image_uri
         state.reference_image_uri = gcs_uri_to_https_url(image_uri)
